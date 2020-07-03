@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
+import Hero from '../components/Hero'
+import Navbar from '../components/Navbar'
+import Banner from '../components/Banner'
 
 class Rooms extends Component {
     render() {
         return (
             <div>
-                <h1>Hello from Rooms Component</h1>
+                <Navbar />
+                <Hero>
+                    <Banner title=''
+                            desc=''>
+                    </Banner>
+                </Hero>
             </div>
         )
     }
