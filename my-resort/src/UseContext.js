@@ -41,9 +41,21 @@ class UseContext extends Component {
             return tempItem
         }
     
+    // its going to help us ones we open one single specific room page 
+    // its help us accessing  specific room
+    getRoom = (slug) => {
+        let tempRooms = [...this.state.rooms]
+        let room = tempRooms.find((room) => room.slug === slug
+        );
+        return room 
+    } 
     render() {
         return (
-            <MyContext.Provider   value={{...this.state}}>
+            <MyContext.Provider   
+                value={{
+                    ...this.state,
+                    getRoom : this.getRoom
+                    }}>
                 {this.props.children}
             </MyContext.Provider>
         )
