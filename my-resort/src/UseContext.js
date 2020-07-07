@@ -13,6 +13,16 @@ class UseContext extends Component {
             sortedRooms : [],
             featuredRooms : [],
             loading : true,
+            type : 'all',
+            capacity : 0,
+            price: 0,
+            minPrice : 0,
+            maxPrice : 0,
+            size: 0,
+            minSize: 0,
+            maxSize: 0,
+            breakfast : false,
+            pets: false 
         }
     }
 
@@ -20,6 +30,7 @@ class UseContext extends Component {
         // getData 
         let rooms = this.formatData(items)
         let featuredRooms = rooms.filter(room => room.featured === true )
+        
         this.setState({
             rooms,
             sortedRooms: rooms,
@@ -55,11 +66,11 @@ class UseContext extends Component {
                 value={{
                     ...this.state,
                     getRoom : this.getRoom
-                    }}>
+                    }}> 
                 {this.props.children}
             </MyContext.Provider>
         )
     }
 }
 
-export { MyContext,  UseContext }
+export { MyContext,  UseContext, UserConsumer }

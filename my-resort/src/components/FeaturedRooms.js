@@ -9,7 +9,6 @@ class FeaturedRooms extends Component {
     
     render() {
         let { loading, featuredRooms} = this.context;
-        console.log(featuredRooms)
         let room = featuredRooms.map(room => {
             return <Room  key={room.id}  room={room} />
         })

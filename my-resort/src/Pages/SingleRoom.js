@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { MyContext } from '../UseContext'
 import { Link } from 'react-router-dom'
+import Hero from '../components/Hero'
+import Banner from '../components/Banner'
 
 class SingleRoom extends Component {
     constructor(props) {
@@ -31,10 +33,24 @@ class SingleRoom extends Component {
                 </div>
             );
         }
+        const {
+            name, 
+            description , 
+            capacity, 
+            size, 
+            price, 
+            extras, 
+            breakfast, 
+            pets, 
+            images } = room 
         return (
-            <div>
-                
-            </div>
+            <Hero>
+                <Banner title={`${name} room`}>
+                    <Link to='/rooms' className='btn-primary'>
+                        Back to rooms
+                    </Link>
+                </Banner>
+            </Hero>
         )
     }
 }
