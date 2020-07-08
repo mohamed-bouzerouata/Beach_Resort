@@ -59,13 +59,25 @@ class UseContext extends Component {
         let room = tempRooms.find((room) => room.slug === slug
         );
         return room 
+    }
+    handleChange = (e) => {
+        e.preventDefault()
+        const value = e.target.value
+        const type = e.target.type
+        console.log(value, type)
     } 
+
+    ApplyFilter = () => {
+        console.log("I'm  a apply filter function")
+    }
+
     render() {
         return (
             <MyContext.Provider   
                 value={{
                     ...this.state,
-                    getRoom : this.getRoom
+                    getRoom : this.getRoom,
+                    handleChange : this.handleChange
                     }}> 
                 {this.props.children}
             </MyContext.Provider>
