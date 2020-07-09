@@ -60,16 +60,43 @@ class UseContext extends Component {
         );
         return room 
     }
-    handleChange = (e) => {
-        e.preventDefault()
-        const value = e.target.value
-        const type = e.target.type
-        console.log(value, type)
-    } 
+    //we gonna run this.applyFilter func as a callback function
 
-    ApplyFilter = () => {
-        console.log("I'm  a apply filter function")
-    }
+    handleChange = event => {
+        const target = event.target;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        const name = target.name;
+        console.log(name, value);
+        this.setState(
+        {
+                [name]: value
+            },
+            this.applyFilter
+        );
+    };
+    //Depending on what we gonna do with input value
+    //we're also gonna be changing this value 
+    applyFilter = () => {
+        let {
+            rooms,
+            type,
+            capacity,
+            price,
+            minSize,
+            maxSize,
+            breakfast,
+            pets
+        } = this.state;
+        let tempRooms = [...rooms];
+        
+        if (type !== "all") {
+            tempRooms = tempRooms.filter(room => room.type === type);
+        }
+        this.setState({
+            sortedRooms: tempRooms
+        });
+        
+    } 
 
     render() {
         return (

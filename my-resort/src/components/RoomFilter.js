@@ -10,7 +10,6 @@ const UniqueRoomsType = (items, value) => {
 export const RoomFilter = () => {
 
     const context = useContext(MyContext)
-    console.log(context)
     const { type, rooms, handleChange } = context
     //Get unique types
     let types = UniqueRoomsType(rooms, 'type')

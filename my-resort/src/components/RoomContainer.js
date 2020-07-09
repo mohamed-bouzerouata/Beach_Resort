@@ -13,7 +13,7 @@ const RoomContainer = () => {
                 return(
                     <>
                         <RoomFilter  rooms={rooms}    />
-                        <RoomList key={rooms.id} rooms={rooms} />
+                        <RoomList key={rooms.id} sortedRooms={sortedRooms} />
                     </>
                 )
             }}
